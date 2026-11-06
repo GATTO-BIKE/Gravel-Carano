@@ -1,0 +1,655 @@
+/* GRAVEL CARANO 2027 — stylesheet leggibile e manutenibile */
+:root {
+    --ink: #101513;
+    --ink-soft: #1b2420;
+    --lime: #d9f414;
+    --paper: #f7f8f3;
+    --muted: #65716a;
+    --line: #dfe4db;
+    --max: 1200px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.55; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #729400; outline-offset: 4px; }
+.wrap { width: min(calc(100% - 44px), var(--max)); margin-inline: auto; }
+.skip-link { position: absolute; top: -100px; left: 12px; z-index: 99; padding: 10px; background: var(--lime); }
+.skip-link:focus { top: 10px; }
+.site-header { position: relative; z-index: 10; background: var(--ink); color: white; }
+.header-inner { min-height: 82px; display: flex; align-items: center; gap: 22px; }
+.brand { display: flex; align-items: center; gap: 13px; text-decoration: none; margin-right: auto; }
+.brand-mark { background: var(--lime); color: var(--ink); font-weight: 1000; font-style: italic; font-size: 23px; letter-spacing: -2px; padding: 11px 13px; transform: skew(-8deg); }
+.brand-copy strong { display: block; font-size: 20px; line-height: 1; font-weight: 950; letter-spacing: -.7px; }
+.brand-copy strong span { color: var(--lime); }
+.brand-copy small { display: block; margin-top: 5px; font-size: 10px; letter-spacing: 1.3px; font-weight: 800; }
+.nav { display: flex; align-items: center; gap: 23px; }
+.nav a { text-decoration: none; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--lime); }
+.cta-header { padding: 14px 21px; background: var(--lime); color: var(--ink); text-decoration: none; font-weight: 950; font-size: 13px; white-space: nowrap; }
+.menu-toggle { display: none; }
+.hero { position: relative; isolation: isolate; min-height: min(620px, calc(100svh - 82px)); display: flex; align-items: center; background: #27352c; overflow: hidden; color: white; }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -2; background: url('../images/hero.jpg') center 45% / cover no-repeat; }
+.hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7,13,9,.87) 0%, rgba(7,13,9,.68) 31%, rgba(7,13,9,.09) 76%); }
+.hero-inner { padding-block: 48px; }
+.eyebrow { margin: 0 0 12px; color: var(--lime); font-weight: 900; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+.display { font-size: clamp(68px, 10vw, 140px); font-weight: 1000; line-height: .83; letter-spacing: -.075em; margin: 0 0 20px; text-transform: uppercase; }
+.display span { display: block; color: var(--lime); }
+.hero-subtitle { max-width: 620px; font-size: clamp(21px, 2.6vw, 33px); line-height: 1.1; font-weight: 950; text-transform: uppercase; margin-bottom: 17px; }
+.hero-description { max-width: 520px; font-size: 17px; margin-bottom: 24px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 15px 22px; font-weight: 950; text-decoration: none; text-transform: uppercase; border: 0; cursor: pointer; }
+.btn-lime { background: var(--lime); color: var(--ink); }
+.btn-outline { border: 2px solid currentColor; }
+.hero-meta { margin: 0 0 15px; font-size: 14px; font-weight: 900; letter-spacing: 1.2px; }
+.quick-links { background: var(--lime); }
+.quick-inner { display: grid; grid-template-columns: repeat(3, 1fr); }
+.quick-inner a { padding: 17px 12px; text-align: center; font-size: 14px; text-decoration: none; font-weight: 950; border-right: 1px solid #b9ce16; }
+.quick-inner a:last-child { border-right: 0; }
+.quick-inner a:hover { background: #c6e110; }
+.section { padding-block: 68px; }
+.section-heading { font-size: clamp(32px, 5vw, 58px); line-height: 1.04; letter-spacing: -.045em; font-weight: 950; text-transform: uppercase; margin-bottom: 18px; }
+.lead { font-size: 19px; max-width: 720px; color: #344239; }
+.page-intro { padding: 56px 0 30px; }
+.page-intro h1 { font-size: clamp(48px, 8vw, 96px); line-height: .95; letter-spacing: -.06em; font-weight: 1000; margin-bottom: 15px; text-transform: uppercase; }
+.page-intro .lead { margin-bottom: 0; }
+.two-col { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: clamp(28px, 5vw, 70px); }
+.feature-photo { width: 100%; height: auto; border-radius: 2px; box-shadow: 16px 16px 0 #e5e9df; }
+.poster-photo { max-height: 500px; width: 100%; object-fit: contain; object-position: top; background: #dfe4dc; }
+.copy p { color: #3c4841; }
+.copy strong { color: var(--ink); }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+.info-card { border-top: 5px solid var(--lime); background: white; padding: 25px; }
+.info-card h3 { font-size: 19px; margin-bottom: 9px; }
+.info-card p { margin: 0; color: var(--muted); }
+.notice { padding: 18px 22px; border-left: 5px solid var(--lime); background: #ecf0e6; margin-block: 25px; }
+.dark-band { background: var(--ink-soft); color: white; }
+.dark-band p { color: #cdd7cd; }
+.site-footer { background: var(--ink); color: #f0f3ee; padding: 38px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 30px; }
+.footer-grid h2 { font-size: 23px; margin-bottom: 8px; }
+.footer-grid h3 { color: var(--lime); font-size: 16px; }
+.footer-grid a { display: block; margin-bottom: 8px; text-decoration: none; }
+.footer-grid a:hover { color: var(--lime); }
+.footer-bottom { border-top: 1px solid #36413a; padding-top: 15px; margin-top: 30px; color: #b7c0b8; font-size: 12px; }
+.form-card { background: white; padding: clamp(20px, 4vw, 38px); border: 1px solid var(--line); }
+.field { margin-bottom: 18px; }
+.field label { display: block; margin-bottom: 7px; font-weight: 800; }
+.field input, .field textarea { width: 100%; padding: 13px 14px; border: 1px solid #aeb8af; background: #fff; border-radius: 0; }
+.field textarea { min-height: 110px; resize: vertical; }
+.check-line { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 22px; }
+.check-line input { margin-top: 5px; }
+.form-status { font-weight: 800; min-height: 26px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.legal { max-width: 850px; }
+.legal h2 { margin-top: 30px; }
+.legal p, .legal li { color: #3e4942; }
+@media (max-width: 900px) {
+    .header-inner { flex-wrap: wrap; padding-block: 13px; }
+    .menu-toggle { display: inline-block; background: transparent; color: white; border: 1px solid #6c776c; padding: 9px 12px; cursor: pointer; }
+    .nav { display: none; order: 4; width: 100%; padding: 12px 0; flex-direction: column; align-items: flex-start; }
+    .nav.is-open { display: flex; }
+    .brand-copy strong { font-size: 17px; }
+    .cta-header { padding: 11px 13px; }
+    .hero { min-height: 560px; }
+    .hero::before { background-position: 62% center; }
+    .hero::after { background: linear-gradient(90deg, rgba(7,13,9,.86), rgba(7,13,9,.24)); }
+    .two-col { grid-template-columns: 1fr; }
+    .feature-photo { max-width: 650px; }
+    .info-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .wrap { width: min(calc(100% - 30px), var(--max)); }
+    .header-inner { gap: 10px; }
+    .brand-mark { font-size: 18px; padding: 8px; }
+    .brand-copy strong { font-size: 15px; }
+    .brand-copy small { font-size: 8px; letter-spacing: .5px; }
+    .cta-header { font-size: 11px; }
+    .hero { min-height: 610px; align-items: flex-end; }
+    .hero::before { background-position: 61% center; }
+    .hero::after { background: linear-gradient(0deg, rgba(7,13,9,.93), rgba(7,13,9,.16) 85%); }
+    .hero-inner { padding-block: 42px; }
+    .display { font-size: clamp(64px, 16vw, 100px); }
+    .quick-inner a { font-size: 11px; padding: 15px 5px; }
+    .section { padding-block: 45px; }
+    .page-intro { padding-top: 36px; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   FOTO REALI — MEMORIAL, TEAM, EDIZIONE 2026 E SEDE
+   Le fotografie mantengono proporzioni naturali: nessun
+   ritaglio automatico di teste, volti o scritte del negozio.
+   ========================================================= */
+.portrait-photo {
+    display: block;
+    max-width: 450px;
+    margin-inline: auto;
+    object-fit: contain;
+    box-shadow: 14px 14px 0 #e5e9df;
+}
+.real-stories {
+    background: #f2f4ed;
+}
+.story-lead {
+    max-width: 760px;
+    margin-bottom: 30px;
+}
+.photo-story-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 3vw, 36px);
+}
+.photo-story {
+    margin: 0;
+    background: #fff;
+}
+.photo-story img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #e8eae4;
+}
+.photo-story figcaption {
+    display: grid;
+    gap: 8px;
+    padding: 22px 24px 26px;
+}
+.photo-story figcaption strong {
+    font-size: 1.3rem;
+}
+.photo-story figcaption span {
+    line-height: 1.55;
+}
+.shop-photo-frame {
+    max-width: 440px;
+    margin-inline: auto;
+}
+.shop-photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+@media (max-width: 760px) {
+    .photo-story-grid { grid-template-columns: 1fr; }
+    .portrait-photo { max-width: min(100%, 400px); }
+}
+
+
+/* ==========================================================
+   REVISIONE FOTOGRAFICA: NESSUN RITAGLIO, FOTO CENTRATE
+   "contain" preserva l'intera fotografia su ogni schermo.
+   ========================================================== */
+.hero {
+    min-height: 0;
+    height: auto;
+    background-color: #14211a;
+}
+.hero::before {
+    background-image: url('../images/hero.jpg');
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+.hero::after {
+    background: linear-gradient(90deg, #101b15 0%, rgba(16,27,21,.96) 24%,
+                                rgba(16,27,21,.76) 43%, rgba(16,27,21,.08) 100%);
+}
+.hero-inner {
+    min-height: min(620px, calc(100svh - 82px));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-block: 30px;
+}
+.display {
+    font-size: clamp(56px, 8.2vw, 112px);
+    line-height: .9;
+}
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+.hero-actions .btn {
+    min-height: 52px;
+}
+.hero-actions .btn-outline {
+    border-color: rgba(255,255,255,.75);
+    color: white;
+}
+.feature-photo,
+.portrait-photo,
+.photo-story img,
+.shop-photo-frame img {
+    object-fit: contain;
+    object-position: center center;
+    height: auto;
+    max-height: none;
+}
+.two-col > div:has(> img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo-story img {
+    aspect-ratio: auto;
+    width: 100%;
+    height: auto;
+}
+.photo-story {
+    align-self: start;
+}
+.shop-photo-frame,
+.portrait-photo {
+    margin-inline: auto;
+}
+@media (max-width: 900px) {
+    .hero::before { background-position: right center; }
+    .hero-inner { min-height: 510px; }
+}
+@media (max-width: 600px) {
+    .hero::before {
+        background-position: center top;
+        background-size: 100% auto;
+    }
+    .hero::after {
+        background: linear-gradient(0deg, #101b15 0%, rgba(16,27,21,.97) 40%,
+                                    rgba(16,27,21,.28) 100%);
+    }
+    .hero-inner {
+        min-height: 640px;
+        justify-content: flex-end;
+        padding-block: 28px;
+    }
+    .display { font-size: clamp(51px, 13vw, 78px); }
+    .hero-actions { width: 100%; }
+    .hero-actions .btn { width: 100%; }
+}
+
+/* ============================================================
+   REVISIONE FINALE — 2027
+   La prima schermata delle pagine editoriali mostra fotografie
+   intere, centrate e titoli completi, senza ingrandimenti forzati.
+   ============================================================ */
+.page-evento .page-intro,
+.page-percorsi .page-intro,
+.page-memorial .page-intro {
+    padding-top: 24px;
+    padding-bottom: 10px;
+}
+.page-evento .page-intro h1,
+.page-percorsi .page-intro h1,
+.page-memorial .page-intro h1 {
+    font-size: clamp(40px, 5vw, 68px);
+    margin-bottom: 7px;
+}
+.page-evento .page-intro .lead,
+.page-percorsi .page-intro .lead,
+.page-memorial .page-intro .lead {
+    font-size: 16px;
+    line-height: 1.4;
+}
+.page-evento > .section:first-of-type,
+.page-percorsi > .section:first-of-type,
+.page-memorial > .section:first-of-type {
+    padding-top: 15px;
+    padding-bottom: 55px;
+}
+.page-evento .two-col,
+.page-percorsi .two-col,
+.page-memorial .two-col {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+    align-items: center;
+    gap: clamp(22px, 3vw, 42px);
+}
+.page-evento .feature-photo,
+.page-percorsi .feature-photo,
+.page-memorial .feature-photo {
+    width: 100%;
+    height: auto;
+    max-height: 330px;
+    object-fit: contain;
+    object-position: center;
+    box-shadow: none;
+    margin: 0 auto;
+}
+.page-memorial .portrait-photo {
+    width: auto;
+    max-width: 100%;
+    max-height: 355px;
+}
+.page-evento .section-heading,
+.page-percorsi .section-heading,
+.page-memorial .section-heading {
+    font-size: clamp(27px, 3.1vw, 42px);
+    line-height: 1.08;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+.page-evento .copy p,
+.page-percorsi .copy p,
+.page-memorial .copy p {
+    margin-bottom: 10px;
+}
+.page-evento .notice,
+.page-percorsi .notice,
+.page-memorial .notice {
+    margin-block: 13px;
+    padding: 12px 15px;
+}
+/* Nella pagina iscrizioni la prima schermata contiene solo
+   "RICHIEDI INFORMAZIONI". Il modulo appare scorrendo. */
+.page-iscrizioni > .page-intro {
+    min-height: calc(100svh - 82px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 38px;
+}
+.page-iscrizioni > .page-intro h1 {
+    font-size: clamp(44px, 8vw, 100px);
+    max-width: 1050px;
+    overflow-wrap: break-word;
+}
+@media (max-width: 900px) {
+    .page-evento .two-col,
+    .page-percorsi .two-col,
+    .page-memorial .two-col {
+        grid-template-columns: 1fr;
+    }
+    .page-evento .feature-photo,
+    .page-percorsi .feature-photo,
+    .page-memorial .feature-photo {
+        max-height: 370px;
+    }
+    .page-iscrizioni > .page-intro {
+        min-height: calc(100svh - 110px);
+    }
+}
+@media (max-width: 600px) {
+    .page-evento .page-intro,
+    .page-percorsi .page-intro,
+    .page-memorial .page-intro {
+        padding-top: 25px;
+    }
+    .page-evento .feature-photo,
+    .page-percorsi .feature-photo,
+    .page-memorial .feature-photo {
+        max-height: 300px;
+    }
+    .page-memorial .portrait-photo { max-height: 330px; }
+    .page-evento .section-heading,
+    .page-percorsi .section-heading,
+    .page-memorial .section-heading { font-size: clamp(28px, 8vw, 38px); }
+    .page-iscrizioni > .page-intro { min-height: calc(100svh - 120px); }
+}
+
+/* =============================================================
+   RITOCCO FOTOGRAFICO — Evento e Memorial
+   Riduce lo spazio sopra la foto di circa 35–45 px su desktop.
+   Le immagini restano intere, senza tagli o zoom.
+   ============================================================= */
+.page-evento > .page-intro,
+.page-memorial > .page-intro {
+    padding-top: 12px;
+    padding-bottom: 0;
+}
+
+.page-evento > .section:first-of-type,
+.page-memorial > .section:first-of-type {
+    padding-top: 0;
+}
+
+.page-evento .feature-photo,
+.page-memorial .feature-photo {
+    object-fit: contain;
+    object-position: center center;
+    max-height: 390px;
+}
+
+/* Percorsi: foto priva del riquadro nero incorporato
+   nel file originale, visualizzata su fondo neutro. */
+.page-percorsi .feature-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .page-evento > .page-intro,
+    .page-memorial > .page-intro {
+        padding-top: 18px;
+        padding-bottom: 0;
+    }
+    .page-evento .feature-photo,
+    .page-memorial .feature-photo {
+        max-height: 320px;
+    }
+    .page-percorsi .feature-photo {
+        max-height: 310px;
+    }
+}
+
+/* MEMORIAL — ritratto intero e pulsante di contatto leggibile. */
+.page-memorial .two-col { align-items: center; }
+.page-memorial .two-col > div:first-child { min-width: 0; overflow: visible; }
+.page-memorial .portrait-photo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    object-position: center;
+    margin-inline: auto;
+}
+.page-memorial .copy { min-width: 0; }
+.page-memorial .section-heading {
+    font-size: clamp(28px, 3vw, 43px);
+    line-height: 1.13;
+    overflow-wrap: break-word;
+}
+.page-memorial .memorial-contact {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-height: 54px;
+    max-width: 100%;
+    padding: 14px 22px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 16px;
+    font-weight: 800;
+    color: #101513;
+    background: var(--lime);
+    overflow-wrap: anywhere;
+}
+.page-memorial .memorial-contact span:last-child { flex: none; }
+.page-memorial .memorial-contact:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (max-width: 900px) {
+    .page-memorial .two-col { gap: 16px; }
+    .page-memorial .portrait-photo { max-height: 320px; }
+}
+@media (max-width: 600px) {
+    .page-memorial .portrait-photo { max-height: 290px; }
+    .page-memorial .memorial-contact { width: 100%; padding: 15px 12px; }
+}
+
+/* ============================================================
+   RIFINITURA: FOTO E PULSANTI INTERAMENTE VISIBILI
+   Intervento su Evento, Percorsi e Memorial.
+   Nessuna foto viene ritagliata: si usa la dimensione naturale
+   con object-fit: contain e il layout si adatta al contenuto.
+   ============================================================ */
+.page-evento > .page-intro,
+.page-percorsi > .page-intro,
+.page-memorial > .page-intro {
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+.page-evento > .section:first-of-type,
+.page-percorsi > .section:first-of-type,
+.page-memorial > .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 30px;
+}
+.page-evento > .section:first-of-type .two-col,
+.page-percorsi > .section:first-of-type .two-col,
+.page-memorial > .section:first-of-type .two-col {
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 34px);
+}
+.page-evento > .section:first-of-type .feature-photo,
+.page-percorsi > .section:first-of-type .feature-photo,
+.page-memorial > .section:first-of-type .feature-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 345px;
+    object-fit: contain;
+    object-position: center center;
+    margin: 0 auto;
+    box-shadow: none;
+    background: transparent;
+}
+.page-memorial > .section:first-of-type .portrait-photo {
+    width: auto;
+    max-height: 355px;
+}
+.page-evento > .section:first-of-type .copy,
+.page-percorsi > .section:first-of-type .copy,
+.page-memorial > .section:first-of-type .copy {
+    min-width: 0;
+}
+.page-evento > .section:first-of-type .copy p,
+.page-percorsi > .section:first-of-type .copy p,
+.page-memorial > .section:first-of-type .copy p {
+    margin-block: 0 8px;
+    line-height: 1.45;
+}
+.page-evento > .section:first-of-type .section-heading,
+.page-percorsi > .section:first-of-type .section-heading,
+.page-memorial > .section:first-of-type .section-heading {
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.08;
+    margin-bottom: 9px;
+}
+.page-evento > .section:first-of-type .notice,
+.page-percorsi > .section:first-of-type .notice {
+    margin-block: 9px;
+    padding: 10px 13px;
+    line-height: 1.4;
+}
+.page-evento .event-map-btn,
+.page-percorsi .routes-updates-btn,
+.page-memorial .memorial-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 52px;
+    margin-top: 10px;
+    padding: 13px 18px;
+    text-align: center;
+    line-height: 1.35;
+    white-space: normal;
+    overflow: visible;
+    font-size: clamp(14px, 1.4vw, 16px);
+    font-weight: 850;
+    border-radius: 3px;
+}
+.page-evento .event-map-btn,
+.page-memorial .memorial-contact {
+    color: #101513;
+    background: var(--lime);
+}
+.page-percorsi .routes-updates-btn {
+    color: var(--ink);
+    background: transparent;
+    border: 2px solid var(--ink);
+}
+.page-evento .event-map-btn:focus-visible,
+.page-percorsi .routes-updates-btn:focus-visible,
+.page-memorial .memorial-contact:focus-visible {
+    outline: 3px solid #376e36;
+    outline-offset: 3px;
+}
+@media (max-width: 900px) {
+    .page-evento > .section:first-of-type .two-col,
+    .page-percorsi > .section:first-of-type .two-col,
+    .page-memorial > .section:first-of-type .two-col {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .page-evento > .section:first-of-type .feature-photo,
+    .page-percorsi > .section:first-of-type .feature-photo,
+    .page-memorial > .section:first-of-type .feature-photo {
+        max-height: 275px;
+    }
+}
+@media (max-width: 600px) {
+    .page-evento > .page-intro,
+    .page-percorsi > .page-intro,
+    .page-memorial > .page-intro { padding-top: 12px; }
+    .page-evento > .section:first-of-type .feature-photo,
+    .page-percorsi > .section:first-of-type .feature-photo,
+    .page-memorial > .section:first-of-type .feature-photo {
+        max-height: 225px;
+    }
+    .page-evento .event-map-btn,
+    .page-percorsi .routes-updates-btn,
+    .page-memorial .memorial-contact {
+        width: 100%;
+        padding: 14px 12px;
+    }
+}
+
+/* RITOCCO NOVEMBRE 2026: foto Memorial e pulsante Evento rialzati.
+   Misura richiesta: circa 1 cm = 38 px a 96 dpi. */
+@media (min-width: 901px) {
+  /* Riduce l'ingombro del ritratto e lo sposta verso l'alto. */
+  .page-memorial > .section:first-of-type .portrait-photo {
+    max-height: 315px;
+    transform: translateY(-38px);
+  }
+  /* Porta il blocco del pulsante Maps più in alto senza tagliarlo. */
+  .page-evento > .section:first-of-type .copy {
+    transform: translateY(-38px);
+  }
+}
+@media (max-width: 900px) {
+  .page-memorial > .section:first-of-type .portrait-photo {
+    max-height: 245px;
+    transform: translateY(-16px);
+  }
+  .page-evento > .section:first-of-type .copy {
+    transform: translateY(-14px);
+  }
+}
+/* Mantiene sempre i pulsanti visibili, senza clipping. */
+.page-evento .event-map-btn,
+.page-memorial .memorial-contact {
+  overflow: visible;
+  white-space: normal;
+}

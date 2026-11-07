@@ -924,3 +924,86 @@ body > main:has(> .hero) > .quick-links {
   .page-iscrizioni > .page-intro h1 { font-size: clamp(31px, 8vw, 43px); overflow-wrap: anywhere; }
   .page-iscrizioni > .section:first-of-type { padding-top: 12px; }
 }
+
+/* Correzione mobile 2026-11-07: foto hero a larghezza piena,
+   senza fascia nera laterale; navigazione mobile equilibrata.
+   Le regole desktop e notebook rimangono inalterate. */
+@media (max-width: 600px) {
+  .site-header .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr);
+    align-items: stretch;
+    gap: 10px;
+    padding-block: 12px 14px;
+  }
+  .site-header .brand {
+    grid-column: 1 / -1;
+    min-width: 0;
+    margin-right: 0;
+  }
+  .site-header .menu-toggle {
+    grid-column: 1;
+    grid-row: 2;
+    order: initial;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    text-align: center;
+    padding: 10px 6px;
+    font-size: clamp(15px, 4.5vw, 19px);
+  }
+  .site-header .cta-header {
+    grid-column: 2;
+    grid-row: 2;
+    order: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 48px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: clamp(13px, 3.8vw, 17px);
+  }
+  .site-header .nav {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    order: initial;
+    width: 100%;
+  }
+  .hero {
+    display: block;
+    position: relative;
+    height: auto;
+    min-height: 0;
+    background: #101b15;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    display: block;
+    position: relative;
+    inset: auto;
+    z-index: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1800 / 820;
+    background-image: url('../images/hero.jpg');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .hero::after { display: none; }
+  .hero .hero-inner {
+    min-height: 0;
+    width: calc(100% - 32px);
+    padding: 28px 0 32px;
+    margin-inline: auto;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .hero .display { font-size: clamp(40px, 11.5vw, 66px); }
+  .hero .hero-subtitle { font-size: clamp(20px, 5.5vw, 27px); }
+  .hero .hero-actions { grid-template-columns: minmax(0, 1fr); }
+  .hero .hero-actions .btn { max-width: 100%; white-space: normal; }
+}

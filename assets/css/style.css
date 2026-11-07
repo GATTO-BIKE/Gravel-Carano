@@ -1007,3 +1007,15 @@ body > main:has(> .hero) > .quick-links {
   .hero .hero-actions { grid-template-columns: minmax(0, 1fr); }
   .hero .hero-actions .btn { max-width: 100%; white-space: normal; }
 }
+
+/* SUPER PREMIUM ELITE — fotografia homepage mobile senza fascia nera.
+   Usa la foto non compositata, mantenendo le proporzioni originali. */
+@media (max-width: 600px) {
+  .hero::before {
+    background-image: url('../images/evento.jpg');
+    aspect-ratio: 984 / 609;
+    background-size: contain;
+    background-position: center center;
+    background-color: #101b15;
+  }
+}

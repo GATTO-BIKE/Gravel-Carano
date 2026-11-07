@@ -653,3 +653,274 @@ h1, h2, h3, p { margin-top: 0; }
   overflow: visible;
   white-space: normal;
 }
+
+
+/* REVISIONE RESPONSIVE DEFINITIVA — layout senza sovrapposizioni */
+html, body { width:100%; max-width:100%; overflow-x:clip; }
+main, section, .wrap, .copy, .two-col > * { min-width:0; }
+img { max-width:100%; height:auto; object-fit:contain; }
+.wrap { width:min(1200px, calc(100% - 40px)); margin-inline:auto; }
+.header-inner { width:min(1440px, calc(100% - 40px)); }
+.brand { min-width:0; }
+.brand-copy { min-width:0; }
+.brand-copy small { overflow-wrap:anywhere; }
+.cta-header, .btn { min-height:48px; text-align:center; align-items:center; justify-content:center; }
+.page-evento > .page-intro, .page-percorsi > .page-intro, .page-memorial > .page-intro {
+  padding-block:clamp(24px, 4vw, 48px) 22px;
+  position:relative; z-index:1;
+}
+.page-evento > .section:first-of-type, .page-percorsi > .section:first-of-type, .page-memorial > .section:first-of-type { padding-block:18px 58px; }
+.page-evento > .section:first-of-type .two-col, .page-percorsi > .section:first-of-type .two-col, .page-memorial > .section:first-of-type .two-col {
+  display:grid; grid-template-columns:minmax(0, .95fr) minmax(0, 1.05fr);
+  gap:clamp(24px, 4vw, 60px); align-items:center;
+}
+.page-evento > .section:first-of-type .feature-photo,
+.page-percorsi > .section:first-of-type .feature-photo,
+.page-memorial > .section:first-of-type .feature-photo,
+.page-memorial > .section:first-of-type .portrait-photo {
+  display:block; width:auto; max-width:100%; height:auto; max-height:520px;
+  margin-inline:auto; object-fit:contain; transform:none; box-shadow:none;
+}
+.page-evento > .section:first-of-type .copy { transform:none; }
+.page-intro .lead { max-width:900px; overflow-wrap:break-word; }
+.section-heading, .page-intro h1, .display { overflow-wrap:normal; word-break:normal; }
+.page-memorial .section-heading { font-size:clamp(27px, 3.5vw, 45px); }
+.page-memorial .memorial-contact, .page-evento .event-map-btn, .btn-lime, .cta-header {
+  background:var(--lime); color:var(--ink); white-space:normal;
+}
+.hero { min-height:0; }
+.hero-inner { min-height:clamp(470px, 65svh, 650px); max-width:1200px; }
+.hero .display { font-size:clamp(44px, 8vw, 108px); line-height:1; letter-spacing:-.055em; }
+.hero .hero-subtitle { overflow-wrap:break-word; }
+@media (max-width:900px) {
+  .header-inner { flex-wrap:wrap; gap:12px; }
+  .nav { order:5; }
+  .page-evento > .section:first-of-type .two-col, .page-percorsi > .section:first-of-type .two-col, .page-memorial > .section:first-of-type .two-col { grid-template-columns:minmax(0,1fr); gap:28px; }
+  .page-evento > .section:first-of-type .feature-photo, .page-percorsi > .section:first-of-type .feature-photo, .page-memorial > .section:first-of-type .feature-photo, .page-memorial > .section:first-of-type .portrait-photo { max-height:none; max-width:min(100%, 560px); transform:none; }
+  .page-evento > .section:first-of-type .copy { transform:none; }
+}
+@media (max-width:600px) {
+  .wrap { width:calc(100% - 32px); }
+  .header-inner { width:calc(100% - 24px); gap:8px; }
+  .brand { gap:8px; flex:1 1 100%; }
+  .brand-copy strong { font-size:clamp(14px, 4.5vw, 20px); }
+  .brand-copy small { font-size:clamp(8px, 2.4vw, 11px); letter-spacing:.25px; }
+  .menu-toggle { order:2; min-height:44px; }
+  .cta-header { order:3; flex:1; min-height:44px; font-size:13px; }
+  .nav { order:4; }
+  .nav a { display:block; padding:9px 4px; }
+  .hero { display:block; }
+  .hero::before { background-size:100% auto; background-position:center top; }
+  .hero::after { background:linear-gradient(0deg,#101b15 0%,rgba(16,27,21,.96) 56%,rgba(16,27,21,.35) 100%); }
+  .hero-inner { min-height:clamp(610px, 90svh, 780px); justify-content:flex-end; align-items:stretch; padding-block:32px; }
+  .hero .display { font-size:clamp(42px, 12vw, 72px); letter-spacing:-.045em; }
+  .hero-actions { display:grid; grid-template-columns:1fr; }
+  .hero-actions .btn, .memorial-contact, .event-map-btn { width:100%; }
+  .page-intro h1 { font-size:clamp(38px, 10vw, 60px); }
+  .page-evento > .page-intro, .page-percorsi > .page-intro, .page-memorial > .page-intro { padding-block:24px 16px; }
+  .page-evento > .section:first-of-type, .page-percorsi > .section:first-of-type, .page-memorial > .section:first-of-type { padding-block:16px 42px; }
+  .quick-inner { grid-template-columns:1fr; }
+  .quick-inner a { border-right:0; border-bottom:1px solid #b9ce16; }
+  .page-iscrizioni > .page-intro { min-height:0; padding-block:65px; }
+  .page-iscrizioni > .page-intro h1 { overflow-wrap:anywhere; }
+  .form-card { padding:18px; }
+}
+@media (max-width:360px) {
+  .brand-mark { font-size:16px; }
+  .hero .display { font-size:clamp(36px, 11.5vw, 44px); }
+  .eyebrow { letter-spacing:1px; }
+}
+
+/* AGGIORNAMENTO NOTEBOOK / PC / TELEFONO — novembre 2026.
+   Prima schermata più compatta: collegamenti accessibili senza
+   ingrandire o ritagliare le fotografie. */
+@media (min-width: 901px) {
+  .header-inner { min-height: 76px; }
+  .hero-inner { min-height: 0; padding-block: 26px 30px; }
+  .hero .display { font-size: clamp(54px, 6.3vw, 88px); line-height: .94; margin-bottom: 12px; }
+  .hero .eyebrow { margin-bottom: 9px; }
+  .hero .hero-subtitle { font-size: clamp(21px, 2.2vw, 29px); line-height: 1.08; margin-bottom: 10px; }
+  .hero .hero-meta { margin-bottom: 9px; }
+  .hero .hero-description { margin-bottom: 16px; }
+  .hero-actions .btn { min-height: 46px; padding: 11px 17px; }
+  .hero::before { background-size: contain; background-position: right center; }
+  .page-evento > .page-intro, .page-percorsi > .page-intro, .page-memorial > .page-intro { padding-block: 22px 12px; }
+  .page-evento > .section:first-of-type, .page-percorsi > .section:first-of-type, .page-memorial > .section:first-of-type { padding-block: 10px 32px; }
+  .page-evento > .section:first-of-type .two-col, .page-percorsi > .section:first-of-type .two-col, .page-memorial > .section:first-of-type .two-col { gap: 30px; align-items: center; }
+  .page-evento > .section:first-of-type .feature-photo, .page-percorsi > .section:first-of-type .feature-photo { max-height: 310px; }
+  .page-memorial > .section:first-of-type .portrait-photo { max-height: 310px; }
+  .page-evento .section-heading, .page-percorsi .section-heading, .page-memorial .section-heading { font-size: clamp(26px, 2.9vw, 39px); }
+  .page-evento .copy p, .page-percorsi .copy p, .page-memorial .copy p { line-height: 1.42; margin-bottom: 8px; }
+  .page-evento .notice, .page-percorsi .notice { margin-block: 9px; padding: 9px 13px; }
+  .page-evento .btn, .page-percorsi .btn, .page-memorial .btn { min-height: 46px; padding: 11px 16px; }
+}
+@media (max-width: 900px) {
+  .hero-inner { min-height: 0; padding-block: 35px; }
+  .hero .display { font-size: clamp(43px, 9vw, 76px); }
+  .page-evento > .section:first-of-type .feature-photo,
+  .page-percorsi > .section:first-of-type .feature-photo,
+  .page-memorial > .section:first-of-type .portrait-photo { max-height: 310px; width: auto; }
+}
+@media (max-width: 600px) {
+  .hero::before { background-size: 100% auto; background-position: center top; }
+  .hero-inner { min-height: 0; padding-top: clamp(185px, 54vw, 280px); padding-bottom: 25px; }
+  .hero .display { font-size: clamp(40px, 11.5vw, 66px); }
+  .hero .hero-subtitle { font-size: clamp(20px, 5.5vw, 27px); }
+  .hero .hero-description { margin-bottom: 14px; }
+  .page-evento > .section:first-of-type .feature-photo,
+  .page-percorsi > .section:first-of-type .feature-photo,
+  .page-memorial > .section:first-of-type .portrait-photo { max-height: 275px; }
+  .page-evento > .section:first-of-type .two-col,
+  .page-percorsi > .section:first-of-type .two-col,
+  .page-memorial > .section:first-of-type .two-col { gap: 18px; }
+}
+
+/* VERSIONE COMPATTA 2027 — notebook e schermi piccoli.
+   I collegamenti principali sono collocati prima delle note informative. */
+@media (min-width: 901px) {
+  .page-evento > .page-intro, .page-percorsi > .page-intro,
+  .page-memorial > .page-intro { padding-block: 14px 7px; }
+  .page-evento > .page-intro h1, .page-percorsi > .page-intro h1,
+  .page-memorial > .page-intro h1 { font-size: clamp(43px, 4.4vw, 66px); line-height: 1.03; margin-block: 6px; }
+  .page-evento > .page-intro .lead, .page-percorsi > .page-intro .lead,
+  .page-memorial > .page-intro .lead { margin-block: 5px 8px; font-size: clamp(16px, 1.25vw, 19px); }
+  .page-evento > .section:first-of-type, .page-percorsi > .section:first-of-type,
+  .page-memorial > .section:first-of-type { padding-block: 5px 24px; }
+  .page-evento > .section:first-of-type .two-col,
+  .page-percorsi > .section:first-of-type .two-col,
+  .page-memorial > .section:first-of-type .two-col { align-items: start; gap: clamp(18px, 2.5vw, 34px); }
+  .page-evento > .section:first-of-type .feature-photo,
+  .page-percorsi > .section:first-of-type .feature-photo { max-height: 285px; object-fit: contain; }
+  .page-memorial > .section:first-of-type .portrait-photo { max-height: 285px; object-fit: contain; }
+  .page-evento > .section:first-of-type .section-heading,
+  .page-percorsi > .section:first-of-type .section-heading,
+  .page-memorial > .section:first-of-type .section-heading { font-size: clamp(25px, 2.45vw, 35px); margin-block: 5px 9px; }
+  .page-evento > .section:first-of-type .copy p,
+  .page-percorsi > .section:first-of-type .copy p,
+  .page-memorial > .section:first-of-type .copy p { font-size: clamp(15px, 1.1vw, 18px); line-height: 1.34; margin-block: 0 7px; }
+  .page-evento .event-map-btn, .page-percorsi .routes-updates-btn,
+  .page-memorial .memorial-contact { margin-block: 7px 10px; min-height: 46px; }
+  .page-evento > .section:first-of-type .notice,
+  .page-percorsi > .section:first-of-type .notice { padding: 8px 12px; margin-block: 6px; font-size: clamp(14px, 1vw, 17px); }
+}
+@media (max-width: 900px) {
+  .page-evento > .section:first-of-type .two-col,
+  .page-percorsi > .section:first-of-type .two-col,
+  .page-memorial > .section:first-of-type .two-col { gap: 15px; }
+  .page-evento > .section:first-of-type .feature-photo,
+  .page-percorsi > .section:first-of-type .feature-photo,
+  .page-memorial > .section:first-of-type .portrait-photo { max-height: 255px; object-fit: contain; }
+}
+@media (max-width: 600px) {
+  .page-evento > .page-intro, .page-percorsi > .page-intro,
+  .page-memorial > .page-intro { padding-block: 15px 8px; }
+  .page-evento > .section:first-of-type .feature-photo,
+  .page-percorsi > .section:first-of-type .feature-photo,
+  .page-memorial > .section:first-of-type .portrait-photo { max-height: 220px; }
+  .page-evento .event-map-btn, .page-percorsi .routes-updates-btn,
+  .page-memorial .memorial-contact { width: 100%; overflow-wrap: anywhere; }
+}
+
+/* Rifinitura responsive: conserva l'aspetto della versione compatta.
+   Permette di leggere ogni sezione con il normale scorrimento verticale. */
+html { overflow-x: clip; scroll-behavior: smooth; }
+body { min-width: 0; overflow-x: clip; }
+main, main > *, .wrap, .two-col, .two-col > *, .copy, .footer-grid > * { min-width: 0; }
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
+p, li, .copy, .lead, .footer-grid, .notice { overflow-wrap: break-word; }
+.btn, .cta-header, .event-map-btn, .routes-updates-btn, .memorial-contact {
+  max-width: 100%; box-sizing: border-box; white-space: normal;
+  overflow-wrap: break-word; text-align: center;
+}
+/* Le fotografie non vengono mai ritagliate. */
+.page-evento .feature-photo, .page-percorsi .feature-photo,
+.page-memorial .portrait-photo { object-fit: contain; }
+/* Evita che il menu completo ecceda la larghezza dei notebook piccoli. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .header-inner { gap: clamp(8px, 1.3vw, 18px); }
+  .nav { gap: clamp(8px, 1.3vw, 18px); }
+  .nav a { font-size: clamp(11px, 1.1vw, 13px); }
+  .cta-header { padding-inline: 12px; }
+  .brand { gap: 9px; }
+  .brand-copy strong { font-size: clamp(16px, 1.8vw, 23px); }
+}
+@media (max-width: 900px) {
+  .two-col, .footer-grid { min-width: 0; }
+  .page-evento .feature-photo, .page-percorsi .feature-photo,
+  .page-memorial .portrait-photo { max-width: 100%; }
+  .header-inner { height: auto; }
+}
+@media (max-width: 600px) {
+  .page-intro h1, .section-heading, .display { max-width: 100%; overflow-wrap: break-word; }
+  .footer-grid { grid-template-columns: minmax(0, 1fr); }
+  .btn, .cta-header { max-width: 100%; }
+  .hero-actions { width: 100%; }
+  .hero-actions > * { min-width: 0; }
+  .page-evento .feature-photo, .page-percorsi .feature-photo,
+  .page-memorial .portrait-photo { width: auto; height: auto; max-width: 100%; }
+}
+@media (max-width: 380px) {
+  .brand-copy strong { letter-spacing: 0; }
+  .brand-copy small { overflow-wrap: anywhere; }
+  .wrap { width: calc(100% - 24px); }
+}
+
+/* Footer uniforme: in tutte le pagine inizia solo dopo la prima schermata.
+   Nessun elemento viene nascosto: il footer resta raggiungibile con lo scroll. */
+body > main {
+  min-height: 100vh; /* fallback per browser meno recenti */
+  min-height: 100svh;
+}
+
+/* Homepage: elimina la fascia vuota tra collegamenti e fine schermata.
+   Il footer rimane sotto il contenuto e compare con lo scorrimento. */
+body > main:has(> .hero) {
+  display: flex;
+  flex-direction: column;
+}
+body > main:has(> .hero) > .hero {
+  flex: 1 0 auto;
+}
+body > main:has(> .hero) > .quick-links {
+  flex: 0 0 auto;
+}
+
+/* Rifinitura mirata: Evento e Iscrizioni, novembre 2026.
+   Non cambia i contenuti, i collegamenti o le altre pagine. */
+@media (min-width: 901px) {
+  /* La fascia scura successiva all'evento comincia oltre il primo schermo. */
+  .page-evento > .section:first-of-type {
+    padding-bottom: max(105px, 13svh);
+  }
+}
+/* Iscrizioni: stessa gerarchia tipografica delle altre pagine;
+   il modulo non e' piu' preceduto da una schermata quasi vuota. */
+.page-iscrizioni > .page-intro {
+  min-height: 0;
+  display: block;
+  padding-block: 22px 10px;
+}
+.page-iscrizioni > .page-intro h1 {
+  font-size: clamp(40px, 4.4vw, 66px);
+  line-height: 1.04;
+  max-width: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  margin-block: 6px 9px;
+}
+.page-iscrizioni > .page-intro .lead {
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.4;
+  max-width: 960px;
+}
+.page-iscrizioni > .section:first-of-type { padding-top: 16px; }
+@media (max-width: 900px) {
+  .page-iscrizioni > .page-intro { min-height: 0; padding-block: 22px 12px; }
+  .page-iscrizioni > .page-intro h1 { font-size: clamp(34px, 6vw, 52px); overflow-wrap: break-word; }
+}
+@media (max-width: 600px) {
+  .page-iscrizioni > .page-intro { padding-block: 22px 12px; }
+  .page-iscrizioni > .page-intro h1 { font-size: clamp(31px, 8vw, 43px); overflow-wrap: anywhere; }
+  .page-iscrizioni > .section:first-of-type { padding-top: 12px; }
+}

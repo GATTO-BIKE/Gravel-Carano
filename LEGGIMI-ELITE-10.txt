@@ -1,0 +1,5 @@
+Gravel Carano 2027 — Rifinitura Elite 10
+
+Modifiche: titolo Iscrizioni ridimensionato su smartphone; menu e iscrizioni meno alti; spaziature uniformate nelle pagine Evento, Percorsi e Memorial; foto senza ritagli. Rimane il contrasto migliorato delle etichette su bianco.
+
+Per GitHub Pages: caricare il CONTENUTO di questa cartella nella radice del repository, non lo ZIP. Verificare il modulo iscrizioni e le email con una prova reale.

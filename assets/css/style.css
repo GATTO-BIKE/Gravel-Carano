@@ -1019,3 +1019,73 @@ body > main:has(> .hero) > .quick-links {
     background-color: #101b15;
   }
 }
+
+/* RIFINITURA FINALE — etichette leggibili sui fondi chiari.
+   Il giallo fluo originale resta su header, hero, pulsanti e fondi scuri. */
+:root { --lime-on-paper: #526900; }
+.page-intro .eyebrow,
+.section:not(.dark-band) .eyebrow,
+main.page-iscrizioni .eyebrow,
+main.page-evento .eyebrow,
+main.page-percorsi .eyebrow,
+main.page-memorial .eyebrow {
+  color: var(--lime-on-paper);
+}
+@media (max-width: 600px) {
+  .page-intro .eyebrow { letter-spacing: .075em; line-height: 1.4; }
+  .page-intro h1 { overflow-wrap: anywhere; }
+}
+
+
+/* ELITE 10 — rifinitura responsive condivisa, 07/11/2026.
+   Nessun ritaglio delle fotografie; desktop invariato. */
+@media (max-width: 900px) {
+  .page-evento > .section:first-of-type .two-col,
+  .page-percorsi > .section:first-of-type .two-col,
+  .page-memorial > .section:first-of-type .two-col {
+    row-gap: 20px;
+  }
+  .page-evento > .section:first-of-type .feature-photo,
+  .page-percorsi > .section:first-of-type .feature-photo,
+  .page-memorial > .section:first-of-type .feature-photo {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    display: block;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 600px) {
+  /* Pulsanti comodi al tocco, ma meno alti. */
+  .site-header .header-inner { padding-block: 10px 12px; gap: 8px 10px; }
+  .site-header .menu-toggle,
+  .site-header .cta-header {
+    min-height: 46px;
+    padding-block: 8px;
+    line-height: 1.2;
+  }
+  /* Intestazione Iscrizioni leggibile senza spezzare le parole. */
+  .page-iscrizioni > .page-intro h1 {
+    font-size: clamp(25px, 6.4vw, 36px);
+    line-height: 1.08;
+    letter-spacing: -.045em;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+  /* Stesso ritmo verticale per le tre pagine fotografiche. */
+  .page-evento > .page-intro,
+  .page-percorsi > .page-intro,
+  .page-memorial > .page-intro { padding-block: 22px 0; }
+  .page-evento > .section:first-of-type,
+  .page-percorsi > .section:first-of-type,
+  .page-memorial > .section:first-of-type { padding-block: 22px 32px; }
+  .page-evento > .section:first-of-type .two-col,
+  .page-percorsi > .section:first-of-type .two-col,
+  .page-memorial > .section:first-of-type .two-col { row-gap: 20px; }
+  .page-evento > .section:first-of-type .copy,
+  .page-percorsi > .section:first-of-type .copy,
+  .page-memorial > .section:first-of-type .copy { margin-top: 0; }
+}

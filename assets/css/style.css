@@ -1089,3 +1089,12 @@ main.page-memorial .eyebrow {
   .page-percorsi > .section:first-of-type .copy,
   .page-memorial > .section:first-of-type .copy { margin-top: 0; }
 }
+
+/* GRAVEL CARANO — colore identico su ogni dispositivo (mobile, tablet, notebook, PC).
+   Solo le tre etichette introduttive su fondo chiaro. */
+:root { --gravel-intro-text: #526900; }
+main.page-evento .page-intro > .eyebrow,
+main.page-percorsi .page-intro > .eyebrow,
+main.page-memorial .page-intro > .eyebrow {
+  color: var(--gravel-intro-text) !important;
+}
